@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0288d1;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            background-color: white;
+            color: #0288d1;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #0277bd;
+            color: white;
+        }
+
+        .match-list {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .match {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .match img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .match:last-child {
+            border-bottom: none;
+        }
+
+        .match a {
+            text-decoration: none;
+            color: #0288d1;
+            font-weight: bold;
+        }
+
+        .match a:hover {
+            text-decoration: underline;
+        }
+
+        .options {
+            margin-left: auto;
+        }
+
+        .options a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .options a:hover {
+            background-color: #0277bd;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .search-bar {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cricket Stream</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for matches...">
+            <button onclick="filterMatches()">Search</button>
+        </div>
+    </header>
+
+    <div class="match-list" id="matchList">
+        <div class="match" data-teams="India vs Australia">
+            <img src="img/Pat-Cummins-Jasprit-Bumrah-IND-vs-AUS-AUS-vs-IND-Border-Gavaskar-Trophy-2024-25.jpg" alt="India vs Australia">
+            <a href="#">India vs Australia - Live Stream</a>
+            <div class="options">
+                <a href="https://shz.al/~Khel-Box-Fox.html" target="_blank">Hindi</a>
+                <a href="https://shz.al/~Khel-Box-Astro.html" target="_blank">English</a>
+            </div>
+        </div>
+        <div class="match" data-teams="South Africa vs Pakistan">
+            <img src="img/th.jpeg" alt="South Africa vs Pakistan">
+            <a href="#">South Africa vs Pakistan - Live Stream</a>
+            <div class="options">
+                <a href="https://shz.al/~Khel-Box-Astro.html" target="_blank">Hindi</a>
+                <a href="https://wlo-cricstreamiing.pages.dev/" target="_blank">English</a>
+            </div>
+        </div>
+        <div class="match" data-teams="Big Bash League">
+            <img src="img/th (1).jpeg" alt="BBL">
+            <a href="#">Big Bash League - Live Stream</a>
+            <div class="options">
+                <a href="https://shz.al/~Khel-Box-Astro2.html" target="_blank">Hindi</a>
+                <a href="https://shz.al/~Khel-Box-Fox.html" target="_blank">English</a>
+            </div>
+        </div>
+        <div class="match" data-teams="New Zealand vs Sri Lanka">
+            <img src="img/th (2).jpeg" alt="New Zealand vs Sri Lanka">
+            <a href="#">New Zealand vs Sri Lanka - Live Stream</a>
+            <div class="options">
+                <a href="hindi_stream.html" target="_blank">Hindi</a>
+                <a href="english_stream.html" target="_blank">English</a>
+            </div>
+        </div>
+        <div class="match" data-teams="New Zealand vs Sri Lanka">
+            <b>More Matches Will Be Add Soon.</b>
+        </div>
+        
+    </div>
+
+    <script>
+        function filterMatches() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const matches = document.querySelectorAll('.match');
+
+            matches.forEach(match => {
+                const teams = match.getAttribute('data-teams').toLowerCase();
+                if (teams.includes(searchInput)) {
+                    match.style.display = '';
+                } else {
+                    match.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
